@@ -23,4 +23,4 @@ Huge thanks to [Epic0001](https://github.com/Epic0001) for bug testing and gener
 ## Donations
 The cheat is free to use but if you respect me and my work and you want to support me in making these hacks and updating them. Here is a way to donate to me and it really helps me. Thank you!
 
-[![](https://raw.githubusercontent.com/jokeri2222/Kahoot-Hack/master/paypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=DUXNZVDCDAQ8S)
+[![](https://raw.githubusercontent.com/jokeri2222/Kahoot-Hack/master/spaypal-donate-button.png)](https://www.paypal.com/donate/?hosted_button_id=DUXNZVDCDAQ8S)
