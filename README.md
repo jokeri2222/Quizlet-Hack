@@ -20,7 +20,7 @@ The latest version includes Auto Answer and Show Answers. By pressing Alt+h on y
 
 
 ## Credits
-Huge thanks to [Epic0001](https://github.com/Epic0001) for bug testing and general bug fixing. Without his help, this project would be way outdated and not fully working piece of cheatware.
+Huge thanks to [Epic0001](https://github.com/Epic0001) for bug testing, general bug fixing and coming up with the idea. Without his help, this project would be way outdated and not fully working piece of cheatware.
 
 ## Donations
 The cheat is free to use but if you respect me and my work and you want to support me in making these hacks and updating them. Here is a way to donate to me and it really helps me. Thank you!
