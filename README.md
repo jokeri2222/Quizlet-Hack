@@ -1,6 +1,6 @@
 
 # Quizlet hack
-
+NOTE images are curently being worked on and if the set is all images no text it wont work!
 
 ## Description
 This is a Quizlet hack made for Chrome browser and Tampermonkey. Made in vanilla js but tested only on Chromium browsers.
