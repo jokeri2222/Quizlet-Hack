@@ -1,8 +1,7 @@
 // ==UserScript==
 // @name         Quizlet Hack
-// @namespace    http://tampermonkey.net/
-// @version      1.0.4
-// @description  A hack for quizlet live
+// @version      1.0.5
+// @description  A hack for Quizlet live
 // @author       jokeri2222
 // @match        https://quizlet.com/live/*
 // @match        https://quizlet.com/live
