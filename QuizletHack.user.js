@@ -12,7 +12,7 @@
 // @grant        none
 // ==/UserScript==
 
-var Version = '1.0.4'
+var Version = '1.0.5'
 
 var autoAnswer = false;
 var showAnswers = false;
