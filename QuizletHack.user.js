@@ -1,18 +1,16 @@
 // ==UserScript==
 // @name         Quizlet Hack
-// @version      1.0.5
-// @namespace    https://github.com/jokeri2222
+// @namespace    http://tampermonkey.net/
+// @version      1.0.7
 // @description  A hack for quizlet live
-// @updateURL    https://github.com/jokeri2222/Quizlet-Hack/raw/main/QuizletHack.meta.js
-// @downloadURL  https://github.com/jokeri2222/Quizlet-Hack/raw/main/QuizletHack.user.js
-// @author       jokeri2222; https://github.com/jokeri2222
+// @author       jokeri2222
 // @match        https://quizlet.com/live/*
 // @match        https://quizlet.com/live
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=quizlet.com
 // @grant        none
 // ==/UserScript==
 
-var Version = '1.0.5'
+var Version = '1.0.7'
 
 var autoAnswer = false;
 var showAnswers = false;
@@ -384,6 +382,10 @@ function getAnswerIndex() {
     resultIdx = undefined
 
     answer = getPair(document.querySelector(".FormattedText").textContent)
+    if (!answer) {
+        location.reload();
+        pairs = []
+    }
 
     document.querySelectorAll(".a1w6enf9").forEach(function(elem, idx) {
         if (elem.textContent == answer) {
@@ -412,38 +414,32 @@ function highlight(index) {
     })
 }
 
-setInterval(function() {
-    const codeElements = document.querySelectorAll(".AssemblyInput-input")
-    gameCode = ""
-    codeElements.forEach(function(elem) {
-        gameCode += elem.value
-    })
+const originalXhrOpen = XMLHttpRequest.prototype.open;
+const originalXhrSend = XMLHttpRequest.prototype.send;
 
+XMLHttpRequest.prototype.open = function (method, url, ...rest) {
+  this._interceptedUrl = url; // Store the URL for logging
+  return originalXhrOpen.call(this, method, url, ...rest);
+};
 
-    if (gameCode.length == 6 && lastCode != gameCode) {
-        lastCode = gameCode
-      
-        let element = document.getElementById('quiz')
-        if (element) element.remove()
-
-        fetch("https://quizlet.com/webapi/3.8/multiplayer/game-instance?gameCode=" + gameCode).then((r1) => {
-            return r1.json().then((j) => {
-                var id = j.gameInstance.itemId
-                element = document.createElement('iframe')
-                element.src = "https://quizlet.com/"+id
-                element.id = 'quiz'
-                element.style.display = 'none'
-                document.body.appendChild(element)
-
-                document.getElementById('quiz').onload = function() {
-                    spans = document.getElementById('quiz').contentDocument.querySelectorAll(".TermText")
-                    pairs = [...spans].flatMap((_, i, a) => i % 2 ? [] : [a.slice(i, i + 2)]).map((pair) => [pair[0].textContent, pair[1].textContent])
-                    console.log(pairs)
-                 };
+XMLHttpRequest.prototype.send = function (...args) {
+  this.addEventListener('load', function () {
+    if (this.responseText) {
+        let text = this.responseText
+        let index = text.indexOf("42[")
+        if (index != -1) {
+            let cards = JSON.parse(text.slice(index+2))[1].cards
+            pairs = cards.map(function (card){
+                return card.cardSides.map(side => side.media[0].plainText)
             })
-        })
+            console.log(pairs)
+        }
     }
+  });
+  return originalXhrSend.call(this, ...args);
+};
 
+setInterval(function() {
  if (document.querySelector(".StudentEndView")) lastAnswer = ""
     if (pairs.length != 0) {
         if (document.querySelector(".FormattedText")) {
