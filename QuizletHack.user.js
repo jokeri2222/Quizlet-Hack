@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Quizlet Hack
-// @version      1.0.4
+// @version      1.0.5
 // @namespace    https://github.com/jokeri2222
 // @description  A hack for quizlet live
 // @updateURL    https://github.com/jokeri2222/Quizlet-Hack/raw/main/QuizletHack.meta.js
