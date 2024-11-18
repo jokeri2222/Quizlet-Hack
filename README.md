@@ -11,7 +11,7 @@ This is a Quizlet hack made for Chrome browser and Tampermonkey. Made in vanilla
  3. Enter the join code. 
 ![image](https://github.com/jokeri2222/Quizlet-Hack/assets/110989057/b85c647f-c82c-4440-a8a4-cd55dc789ba1)
 
- 5. Have happy cheating :). Also if the cheat does not work this make be because of the users quizlet being private.
+ 5. Have happy cheating :).
 
 ## Features
 The latest version includes Auto Answer and Show Answers. By pressing Alt+h on your keyboard it will hide the menu and by pressing Alt+x it will terminate the menu. You can drag the menu from the top bar and minimize and close if you want. Closing the cheat will end the script and will not auto-answer or show the answers. You can use this as a panic button. Or just do Alt+x.
